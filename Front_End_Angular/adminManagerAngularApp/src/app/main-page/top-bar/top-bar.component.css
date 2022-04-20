@@ -1,0 +1,9 @@
+.top-bar {
+    background-color: #242424;
+    height: 60px;
+    color: white;
+    overflow: hidden;
+}
+#company-logo {
+    width: 100px;
+}

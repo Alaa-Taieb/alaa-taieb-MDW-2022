@@ -1,0 +1,48 @@
+.container{
+    width: 70%;
+}
+
+table{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+thead{
+    color: white;
+    background-color: #009879;
+    
+}
+
+thead>tr>th{
+    
+    font-weight: 500;
+}
+
+th{
+    padding: .5rem 1rem;
+    font-weight: 200;
+}
+
+.top-one {
+    border-radius: 10px 0 0 0;
+}
+
+.top-two{
+    border-radius: 0 10px 0 0;
+}
+
+.unpair{
+    background-color: #F3F3F3;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.last{
+    border-bottom: 2px solid #009879;
+}
+
+.btn{
+    padding: 5px 20px;
+    font-size: .8rem !important;
+    margin-left: 10px;
+}

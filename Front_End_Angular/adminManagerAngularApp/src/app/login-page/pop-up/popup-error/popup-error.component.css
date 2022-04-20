@@ -1,0 +1,35 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+p{
+    padding-left: 24px;
+    padding-right: 24px;
+    margin: 15px;
+    color: #242424;
+}
+
+div{
+    padding-left: 24px;
+    padding-right: 24px;
+    
+}
+
+button{
+    font-size: 0.9rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.error-title{
+    background-color: #dc3545;  
+    color: white;
+    padding: 20px;
+}
+
+.success-title{
+    background-color: #42CD83;  
+    color: white;
+    padding: 20px;
+}

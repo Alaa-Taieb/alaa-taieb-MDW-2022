@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+.w-90{
+    width: 90%;
+}
+
+.w-60{
+    width: 60%;
+}
+
+.w-55{
+    width: 55%;
+}
+
+.w-40{
+    width: 40%;
+}
+
+.w-35{
+    width: 35%;
+}
+
+.w-30{
+    width: 30%;
+}
+
+.btn-success{
+    background-color: #42CD83;
+    border-color: #51e295;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.input-text{
+    display: block;
+    width: 15rem;
+    padding: 0.3rem .6rem;
+    margin-top: .2rem;
+    border: 2px solid #707070;
+    border-radius: 2px;
+    min-height: 34.4px;
+}
+
+.input-text-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #242424;
+}
+
+.big-title-main{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.select-input{
+    height: 34.4px;
+    width: 205.6px;
+    padding: 0.3rem .6rem;
+    margin-top: .2rem;
+    border: 2px solid #707070;
+    border-radius: 2px;
+}
+
+mat-dialog-container {
+    background-color: white !important;
+}
+
+.color-success{
+    color: #42CD83;
+}
+
+.color-danger{
+    color: #dc3545;
+}

@@ -1,0 +1,14 @@
+.welcome-text {
+    color: #9F9F9F;
+    font-size: 1.5rem;
+}
+
+
+
+.red-line {
+    display: inline-block;
+    width: 25px;
+    height: 3px;
+    background-color: #dc3545;
+    
+}

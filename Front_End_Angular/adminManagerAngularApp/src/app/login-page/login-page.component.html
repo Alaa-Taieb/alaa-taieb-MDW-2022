@@ -1,0 +1,43 @@
+<div class="background align-items-center">
+
+    <div class="background-dashed-border"></div>
+    <div class="container login-card vertical-center p-0">
+        
+
+        
+        <div class="top-part text-center d-flex align-items-center justify-content-center">
+            <img src="assets/Images/Company Logo (1).png"  id="company-logo" alt="">
+        </div>
+
+        <div class="login-form container w-90">
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="login-label">Username</div>
+                    <input type="text" [(ngModel)]="username" class="login-text-input mt-2">
+                </div>
+                
+            </div>
+            <div class="row mt-4    ">
+                <div class="col">
+                    <div class="login-label">Password</div>
+                    <input type="password" name="username" [(ngModel)]="password" class="login-text-input mt-2">
+                </div>
+            </div>
+            <div class="row mt-4    ">
+                <div class="col text-start">
+                    
+                    <div class="checkbox align-middle">
+                        <input type="checkbox" name="" id="" class="checkbox">
+                        <div class="checkbox-label d-inline px-2 ">Remember me</div>
+                    </div>
+                    
+
+                </div>
+                <div class="col text-end">
+                    <button class="btn btn-success px-4" (click)="handleLogin()">Login</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
