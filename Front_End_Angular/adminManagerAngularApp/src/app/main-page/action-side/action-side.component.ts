@@ -1,4 +1,4 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-action-side',
@@ -7,11 +7,7 @@ import { Component, OnInit , Input} from '@angular/core';
 })
 export class ActionSideComponent implements OnInit {
 
-  @Input() loggedIn: boolean;
-  @Input() username: String;
-  @Input() password: String;
-
-  @Input() menuMessage: string;
+  @Input() message;
 
   constructor() { }
 

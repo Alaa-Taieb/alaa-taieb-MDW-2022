@@ -1,6 +1,5 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/user/User';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,11 +8,10 @@ import { User } from 'src/app/user/User';
 })
 export class TopBarComponent implements OnInit {
 
-  user:User;
-
+  public username;
 
   constructor(private router: Router) {
-    this.user = JSON.parse(localStorage.getItem("LoggedUser"));
+    this.username = JSON.parse(localStorage.getItem("LoggedUser")).login;
   }
 
 
@@ -22,10 +20,6 @@ export class TopBarComponent implements OnInit {
   }
 
   public goToLogin():void {
-    this.router.navigate(['/login-page']);
-  }
-
-  public logout(){
     localStorage.removeItem("JWT");
     localStorage.removeItem("LoggedUser");
     this.router.navigate(['/login-page']);

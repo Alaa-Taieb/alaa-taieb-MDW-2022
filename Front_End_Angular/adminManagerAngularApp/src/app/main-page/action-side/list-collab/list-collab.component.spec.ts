@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CollabListComponent } from './collab-list.component';
+import { ListCollabComponent } from './list-collab.component';
 
-describe('CollabListComponent', () => {
-  let component: CollabListComponent;
-  let fixture: ComponentFixture<CollabListComponent>;
+describe('ListCollabComponent', () => {
+  let component: ListCollabComponent;
+  let fixture: ComponentFixture<ListCollabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CollabListComponent ]
+      declarations: [ ListCollabComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CollabListComponent);
+    fixture = TestBed.createComponent(ListCollabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

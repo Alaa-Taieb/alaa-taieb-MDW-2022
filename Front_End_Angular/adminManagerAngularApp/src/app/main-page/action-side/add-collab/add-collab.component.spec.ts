@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CollabFormComponent } from './collab-form.component';
+import { AddCollabComponent } from './add-collab.component';
 
-describe('CollabFormComponent', () => {
-  let component: CollabFormComponent;
-  let fixture: ComponentFixture<CollabFormComponent>;
+describe('AddCollabComponent', () => {
+  let component: AddCollabComponent;
+  let fixture: ComponentFixture<AddCollabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CollabFormComponent ]
+      declarations: [ AddCollabComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CollabFormComponent);
+    fixture = TestBed.createComponent(AddCollabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
