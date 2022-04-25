@@ -40,7 +40,7 @@ public class MaterialController {
                                 String moyen_acq ,
                                 Integer type_id ,
                                 String state , 
-                                @RequestBody ArrayList<String> serial_number ,
+                                String serial_number ,
                                 Integer Qte
                                 )
     {

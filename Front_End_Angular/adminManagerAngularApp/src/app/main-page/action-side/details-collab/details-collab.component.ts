@@ -17,6 +17,7 @@ export class DetailsCollabComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   changeStatus(){

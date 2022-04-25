@@ -44,42 +44,27 @@ public class MaterialService {
                                 String moyen_acq , 
                                 Integer type_id , 
                                 String state ,
-                                ArrayList<String> serial_number ,
+                                String serial_number ,
                                 Integer Qte){
 
         
         Optional<Type> type = typeRepository.findById(type_id);
         if(type.isPresent()){
             Type newType = type.get();
-            if(serial_number != null){
-                try{
-                    for(int i = 0 ; i < Qte ; i++){
-                        Material material = new Material(name , date_acq , moyen_acq , newType , state , serial_number.get(i));
-                        materialRepository.save(material);
-                    }
-                    Map<String , String> body = new HashMap();
-                    body.put("message" , "Materials created Successfully!");
-                    return new ResponseEntity(body , HttpStatus.CREATED);
-                }catch(Exception e){
-                    Map<String , String> body = new HashMap();
-                    body.put("message" , e.getMessage());
-                    return new ResponseEntity<>(body , HttpStatus.INTERNAL_SERVER_ERROR);
-                }
-            }else{
-                try{
-                    for(int i = 0 ; i < Qte ; i++){
-                        Material material = new Material(name , date_acq , moyen_acq , newType , state , null);
-                        materialRepository.save(material);
-                    }
-                    Map<String , String> body = new HashMap();
-                    body.put("message" , "Materials created Successfully!");
-                    return new ResponseEntity(body , HttpStatus.CREATED);
-                }catch(Exception e){
-                    Map<String , String> body = new HashMap();
-                    body.put("message" , "Operation Failed!");
-                    return new ResponseEntity<>(body , HttpStatus.INTERNAL_SERVER_ERROR);
-                }
+            
+            try{
+                Material material = new Material(name , date_acq , moyen_acq , newType , state , serial_number);
+                materialRepository.save(material);
+                    
+                Map<String , String> body = new HashMap();
+                body.put("message" , "Materials created Successfully!");
+                return new ResponseEntity(body , HttpStatus.CREATED);
+            }catch(Exception e){
+                Map<String , String> body = new HashMap();
+                body.put("message" , e.getMessage());
+                return new ResponseEntity<>(body , HttpStatus.INTERNAL_SERVER_ERROR);
             }
+            
         }else{
             Map<String , String> body = new HashMap();
             body.put("message" , "Wrong Type Id!");

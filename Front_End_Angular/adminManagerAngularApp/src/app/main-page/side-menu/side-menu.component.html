@@ -10,8 +10,8 @@
     <div class="row mt-3">
         <div class="col">
             <button class="ghost-menu-button"><fa-icon [icon]="faBoxOpen" class="icon"></fa-icon> Material</button>
-            <button class="secondary-button">Ajouter</button>
-            <button class="secondary-button">Liste</button>
+            <button class="secondary-button" [ngClass]="message == 'AM' ? 'selected-button' : ''" (click)="sendMessage('AM')">Ajouter</button>
+            <button class="secondary-button" [ngClass]="message == 'LM' ? 'selected-button' : ''" (click)="sendMessage('LM')">Liste</button>
         </div>
     </div>   
 </div>

@@ -22,6 +22,8 @@ import { AddCollabComponent } from './main-page/action-side/add-collab/add-colla
 import { ListCollabComponent } from './main-page/action-side/list-collab/list-collab.component';
 import { UpdateCollabComponent } from './main-page/action-side/update-collab/update-collab.component';
 import { DetailsCollabComponent } from './main-page/action-side/details-collab/details-collab.component';
+import { AddMaterialComponent } from './main-page/action-side/add-material/add-material.component';
+import { ListMaterialComponent } from './main-page/action-side/list-material/list-material.component';
 
 
 
@@ -37,7 +39,9 @@ import { DetailsCollabComponent } from './main-page/action-side/details-collab/d
     AddCollabComponent,
     ListCollabComponent,
     UpdateCollabComponent,
-    DetailsCollabComponent
+    DetailsCollabComponent,
+    AddMaterialComponent,
+    ListMaterialComponent
     
   ],
   imports: [

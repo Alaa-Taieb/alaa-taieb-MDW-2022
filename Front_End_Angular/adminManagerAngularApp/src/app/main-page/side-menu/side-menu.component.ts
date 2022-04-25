@@ -29,5 +29,5 @@ export class SideMenuComponent implements OnInit {
     }
     this.messageEvent.emit(message)
   }
-
+ 
 }

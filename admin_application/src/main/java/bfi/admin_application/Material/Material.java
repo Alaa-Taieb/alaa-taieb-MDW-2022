@@ -18,6 +18,7 @@ public class Material {
     @GeneratedValue
     private Integer Id;
     
+
     private String name;
     private Date date_acq;
     private String moyen_acq;
@@ -26,7 +27,6 @@ public class Material {
     private Type type;
     
     private String state;
-    @Column(unique = true)
     private String serial_number;
 
     
