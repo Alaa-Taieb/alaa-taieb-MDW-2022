@@ -1,1 +1,48 @@
-<p>list-collab works!</p>
+<ng-container *ngIf="currentComponent == 'L'">
+    <div class="container">
+        <div class="title">Liste des Utilisateur</div>
+        <table class="mt-4">
+            <thead>
+                <tr>
+                    <th class="first">Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Numero</th>
+                    <th class="last">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users;let i = index" [ngClass]="0 === i % 2 ? 'unpair' : 'pair'">
+                    
+                    <th>{{user.login}}</th>
+                    <th>{{user.email}}</th>
+                    <th>{{user.role.name}}</th>
+                    <th>{{user.phoneNumber}}</th>
+                    <th>
+                        <button class="btn btn-danger" (click)="deleteUser(user)">Supprimer</button>
+                        <button class="btn btn-success" (click)="updateUser(user)">Modifier</button>
+                        <button class="btn btn-primary" (click)="detailsUser(user)">Details</button>
+                    </th>
+                    
+    
+    
+                </tr>
+                <tr class="bottom">
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="currentComponent == 'U'">
+    <app-update-collab [user]="UserU"  (updatingUserEvent)="recieveMessage($event)"></app-update-collab>
+</ng-container>
+
+<ng-container *ngIf="currentComponent == 'D'">
+    <app-details-collab [user]="UserU" (updatingUserEvent)="recieveMessage($event)"></app-details-collab>
+</ng-container>

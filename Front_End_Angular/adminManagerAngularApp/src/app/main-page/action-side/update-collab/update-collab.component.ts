@@ -1,15 +1,19 @@
-import { User } from './../../../user/User';
-import { RoleService } from './../../../role/role.service';
-import { UserService } from './../../../user/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Role } from 'src/app/role/Role';
+import { RoleService } from 'src/app/role/role.service';
+import { User } from 'src/app/user/User';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
-  selector: 'app-add-collab',
-  templateUrl: './add-collab.component.html',
-  styleUrls: ['./add-collab.component.css']
+  selector: 'app-update-collab',
+  templateUrl: './update-collab.component.html',
+  styleUrls: ['./update-collab.component.css']
 })
-export class AddCollabComponent implements OnInit {
+export class UpdateCollabComponent implements OnInit {
+
+  @Input() user:User;
+
+  @Output() updatingUserEvent = new EventEmitter();
 
   name;
   secondName;
@@ -27,9 +31,10 @@ export class AddCollabComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRoles();
+    this.loadUserToForm();
   }
 
-  addUser(){
+  updateUser(){
     let user:User;
     let role;
     for(let i = 0 ; i < this.roles.length ; i++){
@@ -40,6 +45,7 @@ export class AddCollabComponent implements OnInit {
     }
 
     user = {
+      id: this.user.id,
       name: this.name,
       secondName : this.secondName,
       email: this.email,
@@ -49,11 +55,13 @@ export class AddCollabComponent implements OnInit {
       role: role,
       password: this.password
     }
-    
-    this.userService.addUser(user).subscribe(res=>{
-      alert(res);
+
+    this.userService.updateUser(user).subscribe(res=>{
+      console.log(res);
+      this.changeStatus();
+      
     } , err=>{
-      alert(err);
+      console.log(err);
     })
   }
 
@@ -77,4 +85,19 @@ export class AddCollabComponent implements OnInit {
     this.password = '';
     this.password2 = '';
   }
+
+  loadUserToForm(){
+    this.name = this.user.name;
+    this.secondName = this.user.secondName;
+    this.email = this.user.email;
+    this.phoneNumber = this.user.phoneNumber;
+    this.username = this.user.login;
+    this.birthday = this.user.birthday.slice(0,10);
+    this.role_id = this.user.role.id;
+  }
+
+  changeStatus(){
+    this.updatingUserEvent.emit('L');
+  }
+
 }

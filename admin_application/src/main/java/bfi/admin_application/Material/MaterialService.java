@@ -1,5 +1,6 @@
 package bfi.admin_application.Material;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +44,7 @@ public class MaterialService {
                                 String moyen_acq , 
                                 Integer type_id , 
                                 String state ,
-                                List<String> serial_number ,
+                                ArrayList<String> serial_number ,
                                 Integer Qte){
 
         
@@ -61,7 +62,7 @@ public class MaterialService {
                     return new ResponseEntity(body , HttpStatus.CREATED);
                 }catch(Exception e){
                     Map<String , String> body = new HashMap();
-                    body.put("message" , "Operation Failed!");
+                    body.put("message" , e.getMessage());
                     return new ResponseEntity<>(body , HttpStatus.INTERNAL_SERVER_ERROR);
                 }
             }else{

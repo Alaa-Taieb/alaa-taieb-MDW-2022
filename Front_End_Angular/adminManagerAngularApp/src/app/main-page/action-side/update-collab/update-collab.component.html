@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <div class="title">Ajouter un Utilisateur</div>
+            <div class="title">Modifier {{user.login}}</div>
         </div>
     </div>
 
@@ -110,14 +110,14 @@
             
 
             <div class="input-group mt-2">
-                <button class="btn btn-danger button" (click)="clearAll()">Annuler</button>
+                <button class="btn btn-danger button" (click)="changeStatus()">Precedent</button>
             </div>
         </div>
 
         <div class="col-2">
             
             <div class="input-group mt-2">
-                <button class="btn btn-success button" (click)="addUser()">Ajouter</button>
+                <button class="btn btn-success button" (click)="updateUser()">Modifier</button>
             </div>
         </div>
     </div>

@@ -1,0 +1,58 @@
+.container{
+    margin: 2rem;
+    width: 70%;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+table{
+    
+    width: 100%;
+}
+
+th{
+    text-align: center;
+}
+
+thead>tr>th{
+   background-color: #009879;
+   padding: 10px 15px;
+   color: white;
+}
+
+.first{
+    background-color: #009879;
+    border-radius: 15px 0 0 0;
+}
+
+.last{
+    background-color: #009879;
+    border-radius: 0 15px 0 0;
+}
+
+.unpair{
+    background-color: white ;
+}
+
+.pair{
+    background-color: #F3F3F3;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+th{
+    font-weight: lighter;
+}
+
+.bottom{
+    background-color: #009879;
+    height: 3px;
+}
+
+.btn{
+    padding: 3px 15px;
+    margin: 2px 2px;
+}

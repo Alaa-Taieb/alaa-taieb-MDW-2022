@@ -1,0 +1,64 @@
+.container-main{
+    margin: 2rem;
+    width: 90%;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.user-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.main-container{
+    padding: 15px;
+    border-radius: 34px;
+    background-color: #f5f5f5;
+}
+
+span{
+    font-weight: bold;
+
+}
+
+.vertical-line-1{
+    position: absolute;
+    width: 2px;
+    height: 180px;
+    background-color: #dc3545;
+    top: 22%;
+    left: 39%;
+}
+
+.vertical-line-2{
+    position: absolute;
+    width: 2px;
+    height: 180px;
+    background-color: #dc3545;
+    top: 22%;
+    left: 57%;
+}
+
+.vertical-line-3{
+    position: absolute;
+    width: 2px;
+    height: 180px;
+    background-color: #dc3545;
+    top: 22%;
+    left: 74%;
+}
+
+.section-title{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.float-right{
+    float: right;
+}

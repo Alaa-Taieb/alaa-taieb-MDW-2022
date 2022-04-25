@@ -1,5 +1,6 @@
 package bfi.admin_application.Material;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,10 +40,12 @@ public class MaterialController {
                                 String moyen_acq ,
                                 Integer type_id ,
                                 String state , 
-                                List<String> serial_number ,
+                                @RequestBody ArrayList<String> serial_number ,
                                 Integer Qte
                                 )
     {
+        System.out.println(serial_number);
+        System.out.println(date_acq);
         return materialService.create(name, date_acq, moyen_acq, type_id, state, serial_number, Qte);
     }
 

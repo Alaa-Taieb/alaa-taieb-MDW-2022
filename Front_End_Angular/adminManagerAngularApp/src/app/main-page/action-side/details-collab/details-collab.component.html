@@ -1,0 +1,55 @@
+<div class="container container-main">
+    <div>
+        
+        <span class="title">Details</span>
+    </div>
+    
+    
+    <div class="row mt-3 main-container">
+        <div class="col-3 text-center">
+            <img src="assets/Images/default_user_image.jpg" alt="" class="user-image">
+            <div class="vertical-line-1"></div>
+        </div>
+        <div class="col-3">
+            <div class="container">
+                <div class="row mt-1">
+                    <div class="col-12 section-title">Personnelle</div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12"><span>Nom :</span>  {{user.name}}</div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12"><span>Prenom :</span>  {{user.secondName}}</div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12"><span>Date de naissance :</span> {{user.birthday.slice(0,10)}}</div>
+                </div>
+            </div>
+            <div class="vertical-line-2"></div>
+            
+        </div>
+        <div class="col-3">
+            <div class="container">
+                <div class="row mt-1">
+                    <div class="col-12 section-title">Contact</div>
+                </div>
+                <div class="row mt-4"><div class="col-12"><span>Email :</span> {{user.email}}</div></div>
+                <div class="row mt-1"><div class="col-12"><span>Telephone :</span> {{user.phoneNumber}}</div></div>
+            </div>
+
+            <div class="vertical-line-3"></div>
+            
+        </div>
+        <div class="col-3">
+            <div class="container">
+                <div class="row mt-1">
+                    <div class="col-12 section-title">Professionelle</div>
+                </div>
+                <div class="row mt-4"><div class="col-12"><span>Poste :</span> {{user.role.name}}</div></div>
+                <div class="row mt-1"><div class="col-12"><span>Username :</span> {{user.login}}</div></div>
+            </div>
+            
+        </div>
+    </div>
+    <button class="btn btn-danger float-right mt-2" (click)="changeStatus()"><fa-icon [icon]="arrow"></fa-icon> Precedent</button>
+</div>

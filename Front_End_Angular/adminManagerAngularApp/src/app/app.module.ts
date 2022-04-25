@@ -20,6 +20,8 @@ import { SideMenuComponent } from './main-page/side-menu/side-menu.component';
 import { ActionSideComponent } from './main-page/action-side/action-side.component';
 import { AddCollabComponent } from './main-page/action-side/add-collab/add-collab.component';
 import { ListCollabComponent } from './main-page/action-side/list-collab/list-collab.component';
+import { UpdateCollabComponent } from './main-page/action-side/update-collab/update-collab.component';
+import { DetailsCollabComponent } from './main-page/action-side/details-collab/details-collab.component';
 
 
 
@@ -33,7 +35,9 @@ import { ListCollabComponent } from './main-page/action-side/list-collab/list-co
     SideMenuComponent,
     ActionSideComponent,
     AddCollabComponent,
-    ListCollabComponent
+    ListCollabComponent,
+    UpdateCollabComponent,
+    DetailsCollabComponent
     
   ],
   imports: [
