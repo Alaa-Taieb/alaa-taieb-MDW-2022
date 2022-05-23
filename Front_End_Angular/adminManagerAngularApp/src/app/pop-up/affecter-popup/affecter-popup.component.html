@@ -1,0 +1,23 @@
+<div class="dialog-container">
+    <h1 md-dialog-title class="title">Assign item</h1>
+    <div md-dialog-content class="content-container">
+        <input type="text" placeholder="Search..." [(ngModel)]="searchText" class="search-input">
+        <table>
+            <ng-container *ngFor="let user of users | filter:searchText ">
+                <tr>
+                    <td>{{user.login}}</td>
+                    <td>{{user.role.name}}</td>
+                    <td>
+                        <button *ngIf="selectedUser != user" class="btn btn-success float-right" (click)="selectUser(user.id)">Assign</button>
+                        <button *ngIf="selectedUser == user" class="btn btn-danger float-right" (click)="deselectUser()">Unassign</button>
+                    </td>
+                </tr>
+            </ng-container>
+        </table>
+    </div>
+    <div md-dialog-actions class="action-container">
+        <button class="btn confirm" md-button  (click)="confirmSelection()">Confirm</button>
+        <button class="btn quit" md-button (click)="dialogRefL.close(false)">Cancel</button>
+    </div>
+</div>
+

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import bfi.admin_application.Users.UserPrincipal;
-import bfi.admin_application.Users.UserPrincipalDetailsService;
+import bfi.admin_application.model.UserPrincipal;
+import bfi.admin_application.service.UserPrincipalDetailsService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController

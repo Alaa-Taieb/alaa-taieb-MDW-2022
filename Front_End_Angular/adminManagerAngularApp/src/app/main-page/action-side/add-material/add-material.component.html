@@ -1,125 +1,144 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <div class="title">Ajouter un Utilisateur</div>
+            <div class="title">Ajouter Materiel</div>
         </div>
     </div>
 
-    <div class="row mt-3">
-        <div class="col-6">
-            <div class="input-group">
-                <label for="name">Prenom :</label>
-                
-            </div>
-            <div>
-                <input type="text" class="input" name="name" [(ngModel)]="name">
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="input-group">
-                <label for="name">Nom :</label>
-            </div>
-            <div>
-                <input type="text" class="input" name="secondName" [(ngModel)]="secondName">
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="name">Nom :</label>
+                        </div>
+                        <div>
+                            <input type="text" class="input" name="name" [(ngModel)]="name">
+                        </div>
+                    </div>
+            
+                    <div class="col-6">
+                        <div class="input-group date" data-provide="datepicker">
+                            <label for="date_acq">Date d'acquisition :</label>
+                        </div>
+            
+                        <div>
+                            <input type="date" class="input" name="date_acq" [(ngModel)]="date_acq">
+            
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="qte">Quantite :</label>
+                        </div>
+                        <div>
+                            <input type="number" class="input" name="qte" min="1" [(ngModel)]="qte" (ngModelChange)="createArray()">
+                        </div>
+                    </div>
+            
+                    <div class="col-6">
+                        <div class="checkbox-container">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="show_serialN">
+                            <label class="form-check-label checkbox-label" for="flexCheckDefault">
+                                 Inclure le numéro de série
+                            </label>
+                        </div>
+                    </div>
+                    
+                </div>
+            
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="type">Moyen d'acquisition :</label>
+                        </div>
+                        <div>
+                            
+                            <select name="type" id="" [(ngModel)]="moyen_id" class="input" [disabled]="showNewMoy" [ngClass]="showNewMoy ? 'disabled' : ''">
+                                <option value="{{moy.id}}" *ngFor="let moy of moys">{{moy.name}}</option>
+                            </select>
+                            <fa-icon [icon]="faPlus" class="plusIcon" (click)="switchNewMoy()"></fa-icon>
+                            
+                        </div>
+                    </div>
 
-            </div>
-        </div>
-    </div>
+                    <ng-container *ngIf="showNewMoy">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label for="new_type">Nouveau Moyen :</label>
+                            </div>
 
-    <div class="row mt-3">
-        <div class="col-6">
-            <div class="input-group">
-                <label for="email">Email :</label>
-            </div>
-            <div>
-                <input type="text" class="input" name="email" [(ngModel)]="email">
-
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="input-group">
-                <label for="phoneNumber">Numero telephone :</label>
-            </div>
-
-            <div>
-                <input type="text" class="input" name="phoneNumber" [(ngModel)]="phoneNumber">
-
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-6">
-            <div class="input-group date" data-provide="datepicker">
-                <label for="birthday">Date de naissance :</label>
-            </div>
-
-            <div>
-                <input type="date" class="input" name="birthday" [(ngModel)]="birthday">
-
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="input-group">
-                <label for="role">Role :</label>
-                
-            </div>
-
-            <div>
-                <select name="role" id="role_id" class="input" [(ngModel)]="role_id">
-                    <ng-container *ngFor="let role of roles">
-                        <option  value="{{role.id}}">{{role.name}}</option>
+                            <div>
+                                <input type="text" name="new_type" class="input" [(ngModel)]="newMoy">
+                            </div>
+                        </div>
                     </ng-container>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-6">
-            <div class="input-group">
-                <label for="username">Usermame :</label>
-            </div> 
-            <div>
-                <input type="text" class="input" name="username" [(ngModel)]="username">
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="type">Type :</label>
+                        </div>
+                        <div>
+                            
+                            <select name="type" id="" [(ngModel)]="type_id" class="input" [disabled]="showNewType" [ngClass]="showNewType ? 'disabled' : ''">
+                                <option value="{{type.id}}" *ngFor="let type of types">{{type.name}}</option>
+                            </select>
+                            <fa-icon [icon]="faPlus" class="plusIcon" (click)="switchNewType()"></fa-icon>
+                            
+                        </div>
+                    </div>
 
-            </div>           
-        </div>
-        <div class="col-6">
-            <div class="input-group" data-provide="datepicker">
-                <label for="password">Mot de passe :</label>
-            </div>
-            <div>
-                <input type="password" class="input" name="password" [(ngModel)]="password">
+                    <ng-container *ngIf="showNewType">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label for="new_type">Nouveau Type :</label>
+                            </div>
 
+                            <div>
+                                <input type="text" name="new_type" class="input" [(ngModel)]="newType">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-3">
+            
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center">
+                            <button class="btn btn-danger button">Annuler</button>
+                            <button class="btn btn-success button" (click)="addMaterials()">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <ng-container *ngIf="show_serialN">
+                    <div class="container container_SN">
+                        <div class="row mt-3" *ngFor="let sn of serial_number ; let index = index;">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <label for="number_{{index}}">Number {{index}} :</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="number_{{index}}" class="serial_number_input" [(ngModel)]="serial_number[index].value">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </ng-container>
+
+                
             </div>
         </div>
         
     </div>
-
-    <div class="row mt-3" >
-        <div class="col-6">
-            <div class="input-group">
-                <label for="password2">Réinitialiser Mot de passe :</label>
-            </div>
-            <div>
-                <input type="password" class="input" name="password2" [(ngModel)]="password2">
-
-            </div>
-        </div>
-
-        <div class="col-2">
-            
-
-            <div class="input-group mt-2">
-                <button class="btn btn-danger button" (click)="clearAll()">Annuler</button>
-            </div>
-        </div>
-
-        <div class="col-2">
-            
-            <div class="input-group mt-2">
-                <button class="btn btn-success button" (click)="addUser()">Ajouter</button>
-            </div>
-        </div>
-    </div>
-
+    
+    
 </div>

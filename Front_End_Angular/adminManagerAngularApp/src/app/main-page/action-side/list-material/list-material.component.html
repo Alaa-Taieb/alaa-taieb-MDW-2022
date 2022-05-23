@@ -1,1 +1,67 @@
-<p>list-material works!</p>
+<ng-container *ngIf="view == 'list'">
+    <div class="container">
+        <div class="title">Liste Materiel</div>
+    
+        <div class="container container-left">
+            <div class="row">
+                <div class="col-8">
+                    <table class="mt-4">
+                        <thead>
+                            <tr>
+                                <th class="first">Nom</th>
+                                <th>Type</th>
+                                <th>Quantite</th>
+                                <th class="last">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let fMaterial of finalMaterialList;let i = index" [ngClass]="0 === i % 2 ? 'unpair' : 'pair'">
+                                
+                                <th>{{fMaterial.name}}</th>
+                                <th>{{fMaterial.type}}</th>
+                                
+                                <th>{{fMaterial.qte}}</th>
+                                <th>
+                                    <button class="btn btn-success" (click)="switchUpdateView(fMaterial.id)">Modifier</button>
+                                    <button class="btn btn-primary" (click)="switchDetailsView(fMaterial.id)">Details</button>
+                                </th>
+                                
+                
+                
+                            </tr>
+                            <tr class="bottom">
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-4 mt-4">
+                    <mat-card class="mt-2" *ngFor="let sn of serial_numbers">
+                        <mat-card-title>Numero de serie</mat-card-title>
+                        <mat-card-content>
+                            {{sn.value}}
+                            <button class="btn btn-success float-right" ></button>
+                        </mat-card-content>
+                        
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</ng-container>
+
+<ng-container *ngIf="view == 'details'">
+    <app-material-details [material_id]="material_id" (view)="recieveMessage($event)"></app-material-details>
+</ng-container>
+
+<ng-container *ngIf="view == 'update'">
+    <app-update-material [material_id]="material_id" [back]="back" (view)="recieveMessage($event)"></app-update-material>
+</ng-container>
+
+<ng-container *ngIf="view == 'reappro'">
+    <app-reappro-material [material_id]="material_id" [back]="back" (view)="recieveMessage($event)"></app-reappro-material>
+</ng-container>

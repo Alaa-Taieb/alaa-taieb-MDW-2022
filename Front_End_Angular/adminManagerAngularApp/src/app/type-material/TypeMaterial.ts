@@ -1,4 +1,4 @@
 export interface TypeMaterial{
-    id:number,
-    name:string;
+    id?:number,
+    name?:string;
 }

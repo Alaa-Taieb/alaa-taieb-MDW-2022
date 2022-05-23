@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~ngx-toastr/toastr';
+
+
 .w-90{
     width: 90%;
 }
@@ -71,4 +75,30 @@ mat-dialog-container {
 
 .color-danger{
     color: #dc3545;
+}
+
+.search-input{
+    border-radius: 5px;
+    padding: 5px 20px;
+    padding-right: 30px !important;
+}
+
+.w-10{
+    width: 10%;
+}
+
+.w-5{
+    width: 5%;
+}
+
+.custom-dialog-container .mat-dialog-container {
+    padding: 0;
+}
+
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
 }

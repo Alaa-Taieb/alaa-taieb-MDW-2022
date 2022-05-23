@@ -1,0 +1,113 @@
+.outer-c{
+    margin: 2rem;
+    width: 98%;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.image_class{
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #a9a9a9;
+}
+
+.info{
+    margin-top: 15px;
+    font-weight: bold;
+    z-index: 2;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.line1{
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #707070;
+    top: 50%;
+    
+    z-index: 0;
+}
+
+.p-relative{
+    position: relative;
+}
+
+.detail{
+    color: #707070;
+    float:right;
+}
+
+.card-left{
+    position: relative;
+    z-index: 10;
+    border-radius: 10px 0 0 10px;
+   
+}
+
+.card-right{
+    position: relative;
+    z-index: 9;
+    border: 1px solid #a9a9a9;
+    border-left: 0px;
+   
+}
+
+.card-parent{
+    border-radius: 10px 0 0 10px;
+
+    box-shadow: 1px 1px 2px 0px rgba(140,140,140,0.75);
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(140,140,140,0.75);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(140,140,140,0.75);
+}
+
+.float-right{
+    float: right;
+}
+
+.pl-0{
+    padding-left: 0;
+}
+
+.pl-1{
+    padding-left: 10px;
+}
+
+.icon{
+    padding: 7px;
+    left: 33.5%;
+    color: #707070;
+    min-width: 40px;
+}
+
+.input-icons fa-icon{
+    position: absolute;
+}
+
+.pair{
+    background-color: #EFEFEF;
+}
+
+.unpair{
+    background-color: white;
+}
+
+table{
+    width: 100%;
+}
+
+td{
+    padding: 5px;
+}
+
+tr{
+    border-left: 1px solid #EFEFEF;
+    border-right: 1px solid #EFEFEF;
+
+}
+

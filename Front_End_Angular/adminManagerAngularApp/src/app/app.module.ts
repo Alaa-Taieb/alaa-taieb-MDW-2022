@@ -24,8 +24,17 @@ import { UpdateCollabComponent } from './main-page/action-side/update-collab/upd
 import { DetailsCollabComponent } from './main-page/action-side/details-collab/details-collab.component';
 import { AddMaterialComponent } from './main-page/action-side/add-material/add-material.component';
 import { ListMaterialComponent } from './main-page/action-side/list-material/list-material.component';
-
-
+import { MatCardModule } from '@angular/material/card';
+import { UpdateMaterialComponent } from './main-page/action-side/update-material/update-material.component';
+import { MaterialDetailsComponent } from './main-page/action-side/material-details/material-details.component';
+import { Ng2SearchPipeModule , Ng2SearchPipe } from 'ng2-search-filter';
+import { ConfirmationPopupComponent } from './pop-up/confirmation-popup/confirmation-popup.component';
+import { ToastrModule } from 'ngx-toastr';
+import { AffecterPopupComponent } from './pop-up/affecter-popup/affecter-popup.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule} from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { ReapproMaterialComponent } from './main-page/action-side/reappro-material/reappro-material.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +50,12 @@ import { ListMaterialComponent } from './main-page/action-side/list-material/lis
     UpdateCollabComponent,
     DetailsCollabComponent,
     AddMaterialComponent,
-    ListMaterialComponent
+    ListMaterialComponent,
+    UpdateMaterialComponent,
+    MaterialDetailsComponent,
+    ConfirmationPopupComponent,
+    AffecterPopupComponent,
+    ReapproMaterialComponent,
     
   ],
   imports: [
@@ -56,6 +70,14 @@ import { ListMaterialComponent } from './main-page/action-side/list-material/lis
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    MatCardModule,
+    Ng2SearchPipeModule,
+    ToastrModule.forRoot(),
+    MatPaginatorModule,
+    MatTableModule,
+    MatButtonModule
+    
+
     
   ],
   providers: [

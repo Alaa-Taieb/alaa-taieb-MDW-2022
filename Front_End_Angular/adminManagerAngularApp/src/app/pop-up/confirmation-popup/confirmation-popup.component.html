@@ -1,0 +1,9 @@
+<h1 md-dialog-title class="title">{{title}}</h1>
+<div md-dialog-content class="message">{{confirmMessage}}</div>
+<ng-container *ngIf="moreInfo != undefined">
+    <div md-dialog-content class="moreInfo" [innerHTML]="moreInfo"></div>
+</ng-container>
+<div md-dialog-actions >
+    <button class="btn confirm" md-button  (click)="dialogRef.close(true)">Confirm</button>
+    <button class="btn quit" md-button (click)="dialogRef.close(false)">Cancel</button>
+</div>

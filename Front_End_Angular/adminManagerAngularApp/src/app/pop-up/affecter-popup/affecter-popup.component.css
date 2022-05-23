@@ -1,0 +1,42 @@
+.title{
+    background-color: #3c73a8;
+    padding: 1rem 0.5rem;
+    text-align: center;
+}
+
+table{
+    color: black;
+    width: 100%;
+    
+}
+
+.content-container{
+    margin: 1rem 0.5rem;
+}
+
+
+
+.confirm{
+    color: #fff;
+    background-color: #153961;
+    margin: 1rem;
+}
+
+.quit{
+    color: black;
+    background-color: rgb(244, 244, 244);
+    margin: 1rem;
+
+}
+
+.action-container{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+}
+
+.dialog-container{
+    position: relative;
+    height: 100%;
+}

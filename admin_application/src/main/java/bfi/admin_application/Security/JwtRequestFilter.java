@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import bfi.admin_application.Users.UserPrincipalDetailsService;
+import bfi.admin_application.service.UserPrincipalDetailsService;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter{

@@ -1,0 +1,38 @@
+.message{
+    margin: 2rem 0;
+    color: black;
+    margin: 0.5rem 0.5rem;
+
+}
+
+.title{
+    background-color: #153961;
+    color: white;
+    margin: 0;
+    padding: 0.5rem 1rem;
+
+}
+
+.btn{
+    margin: 1rem;
+}
+
+.confirm{
+    color: #fff;
+    background-color: #153961;
+}
+
+.quit{
+    color: black;
+    background-color: rgb(244, 244, 244);
+}
+
+li{
+    color: rgb(51, 51, 51);
+}
+
+.moreInfo{
+    color: rgb(41, 41, 41);
+    margin: 0.5rem 0.5rem;
+    background-color: rgb(212, 212, 212);
+}

@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="title">Modifier Materiel</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-7">
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="name">Nom :</label>
+                        </div>
+                        <div>
+                            <input type="text" class="input" name="name" [(ngModel)]="name">
+                        </div>
+                    </div>
+            
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="type">Type :</label>
+                        </div>
+                        <div>
+                            
+                            <select name="type" id="" [(ngModel)]="type_id" class="input" [disabled]="showNewType" [ngClass]="showNewType ? 'disabled' : ''">
+                                <option value="{{type.id}}" *ngFor="let type of types">{{type.name}}</option>
+                            </select>
+                            <fa-icon [icon]="faPlus" class="plusIcon" (click)="switchNewType()"></fa-icon>
+                            
+                        </div>
+                    </div>
+
+                    <ng-container *ngIf="showNewType">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label for="new_type">Nouveau Type :</label>
+                            </div>
+
+                            <div>
+                                <input type="text" name="new_type" class="input" [(ngModel)]="newType">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <button mat-flat-button color="warn" (click)="switchView()">Precedent</button>
+                        <button mat-flat-button color="primary" (click)="execute()">Modifier</button>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+                
+        </div>
+        
+    </div>
+    
+    
+</div>
