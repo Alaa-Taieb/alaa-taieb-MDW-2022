@@ -1,0 +1,107 @@
+<div class="container outer-c">
+    <div class="title">Ajouter un bulletin soin</div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="container">
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="code">Code :</label>
+                            
+                        </div>
+                        <div>
+                            <input type="text" class="input" name="code" [(ngModel)]="code">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="date">Date :</label>
+                        </div>
+                        <div>
+                            <input type="date" class="input" name="date" [(ngModel)]="date">
+        
+            
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="type">Type :</label>
+                        </div>
+                        <div>
+                            
+                            <select name="type" id="" [(ngModel)]="type_id" class="input" [disabled]="showNewType" [ngClass]="showNewType ? 'disabled' : ''">
+                                <option value="{{type.id}}" *ngFor="let type of types">{{type.type}}</option>
+                            </select>
+                            <fa-icon [icon]="faPlus" class="plusIcon" (click)="switchNewType()"></fa-icon>
+                            
+                        </div>
+                    </div>
+
+                    <ng-container *ngIf="showNewType">
+                        <div class="col-6">
+                            <div class="input-group">
+                                <label for="new_type">Nouveau Type :</label>
+                            </div>
+
+                            <div>
+                                <input type="text" name="new_type" class="input" [(ngModel)]="newType">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="user">User :</label>
+                            
+                        </div>
+            
+                        <div>
+                            <select name="user" id="user_id" class="input" [(ngModel)]="user_id">
+                                <ng-container *ngFor="let user of users">
+                                    <option  value="{{user.id}}">{{user.login}}</option>
+                                </ng-container>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row mt-2">
+                    <div class="col-7">
+                        <div class="input-group">
+                            <label for="File">Piece Joint</label>
+                        </div>
+                        <div>
+                            <input #FileInput type="file" (change)="onFileChange($event)" class="form-control input" >
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="input-group">
+                            <label for="File" style="color: white;">.</label>
+                        </div>
+                        <fa-icon *ngIf="fileUploaded" [icon]="okState" class="icon-green"></fa-icon>
+                        <fa-icon *ngIf="!fileUploaded" [icon]="warnState" class="icon-yellow"></fa-icon>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <label for="File" style="color: white;">.</label>
+                        </div>
+                        <button mat-flat-button color="accent" class="margin-right" (click)="upload()">Upload</button>
+                        <button mat-flat-button color="warn" (click)="removeFile(newFileEntity)" [disabled]="newFileEntity == null">Remove</button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-3"></div>
+                    <div class="col-6 text-center">
+                        <button class="btn btn-success margin-right" [disabled]="newFileEntity == null && fileEntity == null" (click)="Update()">Update</button>
+                        <button class="btn btn-danger" (click)="switchView()">Back</button>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

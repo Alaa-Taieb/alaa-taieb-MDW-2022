@@ -14,15 +14,15 @@ export class MainPageComponent implements OnInit {
 
 
   constructor(private router: Router) {
-    
+    if(localStorage.getItem("JWT") == undefined){
+      this.router.navigate(["/login-page"]);
+    }
   }
 
 
  
   ngOnInit(): void {
-    if(localStorage.getItem("JWT") == null){
-      this.router.navigate(["login-page"]);
-    }
+    
   }
 
   public goToLogin():void {

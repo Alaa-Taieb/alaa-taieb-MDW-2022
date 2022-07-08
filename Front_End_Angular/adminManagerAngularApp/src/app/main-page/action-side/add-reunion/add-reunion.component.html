@@ -1,0 +1,116 @@
+<div class="container outer-c">
+    <div class="title">
+        Envoyer des documents
+    </div>
+
+    <div class="row mt-4">
+        
+        <div class="col-12">
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                
+                <table mat-table [dataSource]="dataSource">
+        
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef>
+                          <mat-checkbox (change)="$event ? masterToggle() : null"
+                                        [checked]="selection.hasValue() && isAllSelected()"
+                                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                          </mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                          <mat-checkbox (click)="$event.stopPropagation()"
+                                        (change)="$event ? selection.toggle(row) : null"
+                                        [checked]="selection.isSelected(row)">
+                          </mat-checkbox>
+                        </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="username">
+                        <th mat-header-cell *matHeaderCellDef>Username</th>
+                        <td mat-cell *matCellDef="let element" class="">{{element.username}}</td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="role">
+                        <th mat-header-cell *matHeaderCellDef>Role</th>
+                        <td mat-cell *matCellDef="let element" class="">{{element.role}}</td>
+                    </ng-container>
+    
+    
+                    
+    
+                    
+    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                    
+                </table>
+                <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                </mat-paginator>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="">Date prévue :</label>
+                    </div>
+                    <div>
+                        
+                        <mat-form-field style="width: 100%;">
+                          <input matInput  [ngxMatDatetimePicker]="picker" placeholder="Choisissez une date" [formControl]="dateControl"
+                            [min]="minDate" [max]="maxDate" [disabled]="disabled" [(ngModel)]="scheduled_date" (ngModelChange)="checkDate()" required>
+                          <mat-datepicker-toggle matSuffix  [for]="$any(picker)"></mat-datepicker-toggle>
+                          
+                          <ngx-mat-datetime-picker  #picker [showSpinners]="showSpinners" [showSeconds]="showSeconds"
+                            [stepHour]="stepHour" [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi"
+                            [color]="color" [enableMeridian]="false">
+                          </ngx-mat-datetime-picker>
+                        </mat-form-field>
+                        
+                    </div>
+                </div>
+                <div class="col-6">
+                    <ng-container *ngIf="!validDate">
+                        <div class="error_text">
+                            L'heure choisie est à moins de deux heures d'une autre réunion, veuillez reporter la réunion.
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="input-group">
+                        <label for="">Sujet :</label>
+                    </div>
+                    <div class="md-form" style="width: 100%;">
+                        <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control input width-100" mdbInput [(ngModel)]="sujet"></textarea>
+                        
+                      </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <button class="btn btn-danger button" (click)="cancel()">Annuler</button>
+                    <button class="btn btn-success button float-right" (click)="execute()" >Envoyer</button>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

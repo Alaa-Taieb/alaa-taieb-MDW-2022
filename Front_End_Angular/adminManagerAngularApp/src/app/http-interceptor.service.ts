@@ -12,7 +12,8 @@ export class HttpInterceptorService implements HttpInterceptor {
         if (localStorage.getItem("JWT") != null) {
             const authReq = req.clone({
                 headers: new HttpHeaders({
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    //'Content-type': 'multipart/form-data',
+                    //'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': `Bearer ${localStorage.getItem("JWT")}`
                 })
             });

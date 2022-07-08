@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-title">Calendrier</div>
+                <div class="card-body">
+                    <full-calendar [options]="calendarOptions"></full-calendar>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="container full-height">
+                <div class="row right-cards">
+                    <div class="col-12">
+                        <div class="card full-height">
+                            <div class="card-title">Mes Demande</div>
+                            <div class="card-body">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row right-cards">
+                    <div class="col-12">
+                        <div class="card full-height">
+                            <div class="card-title">Mon matériel</div>
+                            <div class="card-body pt-0 pb-0">
+                                <!-- <mat-form-field appearance="standard">
+                                    <mat-label>Filter</mat-label>
+                                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+                                </mat-form-field> -->
+                                <table mat-table [dataSource]="material_dataSource" class="w-100">
+                    
+                                    <ng-container matColumnDef="nom" >
+                                        <th mat-header-cell *matHeaderCellDef >Nom</th>
+                                        <td mat-cell *matCellDef="let element" class="text-center">{{element.nom}}</td>
+                                    </ng-container>
+                
+                                    <ng-container matColumnDef="serialNumber">
+                                        <th mat-header-cell *matHeaderCellDef>Numéro de série</th>
+                                        <td mat-cell *matCellDef="let element" class="text-center">{{element.serialNumber}}</td>
+                                    </ng-container>
+                    
+                                    <ng-container matColumnDef="action">
+                                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                                        <td mat-cell *matCellDef="let element"  class="text-center" >
+                                            
+                                        </td>
+                                    </ng-container>
+                    
+                                    
+                    
+                                    
+                    
+                                    <tr mat-header-row *matHeaderRowDef="material_displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: material_displayedColumns;"></tr>
+                    
+                                    <!-- <tr class="mat-row" *matNoDataRow>
+                                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                                    </tr> -->
+                                    
+                                </table>
+                                <mat-paginator [length]="material_totalSize" [pageSizeOptions]="[3]" aria-label="Select page" [pageIndex]="material_currentPage" (page)="handlePage($event)">
+                                </mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

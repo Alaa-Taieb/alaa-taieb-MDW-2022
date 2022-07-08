@@ -13,5 +13,30 @@
             <button class="secondary-button" [ngClass]="message == 'AM' ? 'selected-button' : ''" (click)="sendMessage('AM')">Ajouter</button>
             <button class="secondary-button" [ngClass]="message == 'LM' ? 'selected-button' : ''" (click)="sendMessage('LM')">Liste</button>
         </div>
-    </div>   
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="ghost-menu-button"><fa-icon [icon]="faFileMedical" class="icon"></fa-icon> Document</button>
+            <button class="secondary-button" [ngClass]="message == 'ABS' ? 'selected-button' : ''" (click)="sendMessage('ABS')">Ajouter</button>
+            <button class="secondary-button" [ngClass]="message == 'LBS' ? 'selected-button' : ''" (click)="sendMessage('LBS')">Liste</button>
+        </div>
+    </div> 
+    <div class="row mt-3">
+        <div class="col">
+            <button class="ghost-menu-button"><fa-icon [icon]="inbox" class="icon"></fa-icon> Courrier</button>
+            <button class="extend-button" (click)="envoiDropDownSwitch()">Envoi <fa-icon [icon]="envoiDropDown ? upArrow : downArrow" class="arrow"></fa-icon></button>
+            <button *ngIf="envoiDropDown" class="secondary-button" [ngClass]="message == 'ACE' ? 'selected-button' : ''" (click)="sendMessage('ACE')">Envoyer</button>
+            <button *ngIf="envoiDropDown" class="secondary-button" [ngClass]="message == 'LCE' ? 'selected-button' : ''" (click)="sendMessage('LCE')">Liste</button>
+            <button class="extend-button" (click)="receptionDropDownSwitch()">Reception <fa-icon [icon]="receptionDropDown ? upArrow : downArrow" class="arrow"></fa-icon></button>
+            <button *ngIf="receptionDropDown" class="secondary-button" [ngClass]="message == 'ACR' ? 'selected-button' : ''" (click)="sendMessage('ACR')">Ajouter</button>
+            <button *ngIf="receptionDropDown" class="secondary-button" [ngClass]="message == 'LCR' ? 'selected-button' : ''" (click)="sendMessage('LCR')">Liste</button>
+        </div>
+    </div>    
+    <div class="row mt-3">
+        <div class="col">
+            <button class="ghost-menu-button"><fa-icon [icon]="faHeadset" class="icon"></fa-icon> Reunion</button>
+            <button class="secondary-button" [ngClass]="message == 'AR' ? 'selected-button' : ''" (click)="sendMessage('AR')">Plannifier</button>
+            <button class="secondary-button" [ngClass]="message == 'LR' ? 'selected-button' : ''" (click)="sendMessage('LR')">Liste</button>
+        </div>
+    </div> 
 </div>

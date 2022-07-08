@@ -8,9 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
-public class BulletinS {
+public class Document {
     
     @Id
     @GeneratedValue
@@ -19,8 +23,8 @@ public class BulletinS {
     @ManyToOne
     private User user;
 
-    @Lob
-    private Byte[] data;
+    @OneToOne
+    private FileEntity file;
 
     @Column(unique = true)
     private String code;
@@ -31,15 +35,39 @@ public class BulletinS {
 
     private Date send_date;
 
-    public BulletinS(){}
+    @ManyToOne
+    private Envoi envoi;
 
-    public BulletinS(User user, Byte[] data, String code, Date date, boolean sent, Date send_date) {
+    @ManyToOne
+    @Cascade(CascadeType.PERSIST)
+    private DocumentType documentType;
+
+    public Document(){}
+
+    public Document(User user, FileEntity file, String code, Date date, boolean sent, Date send_date , DocumentType documentType) {
         this.user = user;
-        this.data = data;
+        this.file = file;
         this.code = code;
         this.date = date;
         this.sent = sent;
         this.send_date = send_date;
+        this.documentType = documentType;
+    }
+
+    public Envoi getEnvoi() {
+        return envoi;
+    }
+
+    public void setEnvoi(Envoi envoi) {
+        this.envoi = envoi;
+    }
+
+    public DocumentType getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(DocumentType documentType) {
+        this.documentType = documentType;
     }
 
     public Integer getId() {
@@ -54,12 +82,12 @@ public class BulletinS {
         this.user = user;
     }
 
-    public Byte[] getData() {
-        return data;
+    public FileEntity getFile() {
+        return file;
     }
 
-    public void setData(Byte[] data) {
-        this.data = data;
+    public void setFile(FileEntity file) {
+        this.file = file;
     }
 
     public String getCode() {

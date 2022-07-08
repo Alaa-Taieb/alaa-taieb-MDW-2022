@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.fill { 
+    min-height: 100%;
+    height: 100vh;
+}
+
+.menu {
+    background-color: #f1f7fa;
+    border-right: 1px solid #dee4e7;
+}
+
+.collab-name-container{
+    background-color: rgb(11, 0, 26);
+    height: 20vh;
+}
+
+.top-side{
+    height: 20vh;
+    border-bottom: 1px solid #dee4e7;
+    background-image: url("/assets/Images/background-collab-image.png");
+    background-repeat: no-repeat;
+}
+
+.menu-section-1{
+    margin-left: 35px;
+    margin-top: 25px;
+    font-weight: bold;
+    color: #556467;
+}
+
+.menu-section-2{
+    margin-left: 35px;
+    margin-top: 25px;
+    position: relative;
+    top: 250px;
+    font-weight: bold;
+    color: #556467;
+}
+
+.menu-title{
+    color: #949898;
+}
+
+.menu-icon{
+    margin-right: 10px;
+}
+
+.menu-button{
+    margin-top: 15px;
+    cursor: pointer;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.menu-button:hover{
+    background-color: #c9cfd2;
+}
+
+.user-card{
+    background-color: rgb(28, 5, 60);
+    width: 90%;
+    height: 80%;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    border-radius: 15px;
+}
+
+.user-icon{
+    color: #ffef09;
+    font-size: 5rem;
+}
+
+.user-container{
+    height: 100%;
+    padding: 10px;
+}
+
+.user-details-list{
+    padding-left: 40px;
+    padding-top: 15px;
+    color: #ffef09;
+    font-weight: bold;
+}
+
+.top-side-title{
+    font-size: 3rem;
+    position: relative;
+    top: 70px;
+    padding-left: 30px;
+    font-weight: bold;
+}

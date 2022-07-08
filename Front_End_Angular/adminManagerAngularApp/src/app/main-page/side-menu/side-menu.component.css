@@ -33,3 +33,16 @@
     background-color: #dc3545;
     color: white;
 }
+
+.extend-button{
+    position: relative;
+    left: 50px;
+    margin-top: 10px;
+    width: 165px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.arrow{
+    float: right;
+}

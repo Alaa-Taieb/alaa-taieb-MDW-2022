@@ -32,7 +32,7 @@ export class UserService {
     return this.http.post<String>(`${this.apiServerUrl}/users`,params);
   }
 
-  public updateUser(user: User): Observable<String> {
+  public updateUser(user: User): Observable<User> {
     const params = new HttpParams()
     .set('name' , user.name)
     .set('secondName' , user.secondName)
@@ -42,7 +42,7 @@ export class UserService {
     .set('phoneNumber' , user.phoneNumber)
     .set('login' , user.login)
     .set('password' , user.password);
-    return this.http.put<String>(`${this.apiServerUrl}/users/${user.id}` , params);
+    return this.http.put<User>(`${this.apiServerUrl}/users/${user.id}` , params);
   }
 
   public deleteUser(user: User): Observable<String> {

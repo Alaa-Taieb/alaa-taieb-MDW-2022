@@ -1,0 +1,15 @@
+.standard{
+    padding-left: 10px;
+}
+
+.btn{
+    margin-right: 10px;
+}
+
+.annuler{
+    background-color: rgb(255, 244, 242);
+}
+
+.acheve{
+    background-color: rgb(242, 255, 251);
+}

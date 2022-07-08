@@ -1,0 +1,80 @@
+<div class="container-fuild">
+    <div class="container-fluid main-section h-100" >
+        <div class="row">
+            <div class="col-2 fill menu" >
+                <div class="collab-name-container">
+                    <div class="user-card">
+                        <div class="container user-container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <fa-icon class="user-icon" [icon]="userIcon"></fa-icon>
+                                </div>
+                                <div class="col-8">
+                                    <ul class="user-details-list">
+                                        <li>{{username}}</li>
+                                        <li>{{role}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <div class="menu-section-1">
+                        <div class="menu-title">MENU</div>
+                        <div class="menu-button" (click)="changePage('Dashboard')"> <fa-icon class="menu-icon" [icon]="dashboardIcon"></fa-icon> Dashboard</div>
+                        <div class="menu-button" (click)="changePage('Reunion')"> <fa-icon class="menu-icon" [icon]="reunionIcon"></fa-icon> Réunion</div>
+                        <div class="menu-button" (click)="changePage('Demande')"> <fa-icon class="menu-icon" [icon]="demandeIcon"></fa-icon> Demande</div>
+                        <div class="menu-button" (click)="changePage('Material')"> <fa-icon class="menu-icon" [icon]="materielIcon"></fa-icon> Matériel</div>
+                    </div>
+                    
+                    <div class="menu-section-2">
+                        <div class="menu-title">MON COMPTE</div>
+                        <div class="menu-button" (click)="changePage('Account')"> <fa-icon class="menu-icon" [icon]="accountIcon"></fa-icon> Compte</div>
+                        <div class="menu-button" (click)="goToLogin()"> <fa-icon class="menu-icon" [icon]="logoutIcon"></fa-icon> Log Out</div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="top-side">
+                                <div class="top-side-title">
+                                    {{page}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <ng-container *ngIf="page == 'Dashboard'">
+                                <app-collab-dashboard></app-collab-dashboard>
+                            </ng-container>
+
+                            <ng-container *ngIf="page == 'Reunion'">
+                                <app-collab-reunion></app-collab-reunion>
+                            </ng-container>
+
+                            <ng-container *ngIf="page == 'Demande'">
+                                <app-collab-demande></app-collab-demande>
+                            </ng-container>
+
+                            <ng-container *ngIf="page == 'Material'">
+                                <app-collab-material></app-collab-material>
+                            </ng-container>
+
+                            <ng-container *ngIf="page == 'Account'">
+                                <app-collab-account (view)="recieveMessage($event)"></app-collab-account>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>

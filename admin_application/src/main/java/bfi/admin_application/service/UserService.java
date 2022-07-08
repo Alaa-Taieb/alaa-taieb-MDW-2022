@@ -17,6 +17,7 @@ import bfi.admin_application.model.Role;
 import bfi.admin_application.model.User;
 import bfi.admin_application.repository.RoleRepository;
 import bfi.admin_application.repository.UserRepository;
+import net.bytebuddy.dynamic.loading.PackageDefinitionStrategy.Definition.Undefined;
 
 @Service
 public class UserService {
@@ -92,6 +93,9 @@ public class UserService {
                              String role_id){
        
         Optional<User> userData = userRepository.findById(id);
+        Boolean passowrdEmpty = password.equals("undefined");
+        System.out.println("Password : " +password);
+        System.out.println("Password is null : " +passowrdEmpty);
         password = passwordEncoder.encode(password);                       
         if(userData.isPresent()){
             User newUser = userData.get();
@@ -104,12 +108,17 @@ public class UserService {
             newUser.setEmail(email);
             newUser.setPhoneNumber(phoneNumber);
             newUser.setLogin(login);
-            newUser.setPassword(password);
+            if(!passowrdEmpty){
+                newUser.setPassword(password);
+            }else{
+                System.out.println("Password is null : " +passowrdEmpty);
+            }
+            
             newUser.setRole(realUserRole);
             userRepository.save(newUser);
             Map<String , String> body = new HashMap<>();
             body.put("message", "User updated Successfully!");
-            return new ResponseEntity<>(body , HttpStatus.OK);
+            return new ResponseEntity<>(newUser , HttpStatus.OK);
         }else{
             Map<String , String> body = new HashMap<>();
             body.put("error", "Unable to update User!");

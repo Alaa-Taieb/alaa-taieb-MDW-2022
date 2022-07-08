@@ -3,4 +3,5 @@ export interface Material{
     id?: number,
     name?: string,
     type?: TypeMaterial,
+    
 }

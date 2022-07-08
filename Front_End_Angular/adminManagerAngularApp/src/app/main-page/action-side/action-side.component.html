@@ -35,4 +35,38 @@
     <app-list-material></app-list-material>
 </ng-container>
 
+<ng-container *ngIf="message == 'ABS'">
+    <app-add-document></app-add-document>
+</ng-container>
+
+<ng-container *ngIf="message == 'LBS'">
+    <app-list-document></app-list-document>
+</ng-container>
+
+<ng-container *ngIf="message == 'ACE'">
+    <app-add-envoi></app-add-envoi>
+</ng-container>
+
+<ng-container *ngIf="message == 'LCE'">
+    <app-list-envoi></app-list-envoi>
+</ng-container>
+
+<ng-container *ngIf="message == 'ACR'">
+    <app-add-recieve></app-add-recieve>
+</ng-container>
+
+<ng-container *ngIf="message == 'LCR'">
+    <app-list-recieve></app-list-recieve>
+</ng-container>
+
+<ng-container *ngIf="message == 'AR'">
+    <app-add-reunion></app-add-reunion>
+</ng-container>
+
+<ng-container *ngIf="message == 'LR'">
+    <app-list-reunion></app-list-reunion>
+</ng-container>
+
+
+
 

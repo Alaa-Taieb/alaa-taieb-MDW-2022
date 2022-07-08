@@ -1,0 +1,131 @@
+<div class="container outer-c">
+    <div class="title">
+        Envoyer des documents
+    </div>
+
+    <div class="row mt-4">
+        
+        <div class="col-12">
+            <mat-form-field appearance="standard">
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                
+                <table mat-table [dataSource]="dataSource">
+        
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef>
+                          <mat-checkbox (change)="$event ? masterToggle() : null"
+                                        [checked]="selection.hasValue() && isAllSelected()"
+                                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                          </mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                          <mat-checkbox (click)="$event.stopPropagation()"
+                                        (change)="$event ? selection.toggle(row) : null"
+                                        [checked]="selection.isSelected(row)">
+                          </mat-checkbox>
+                        </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef>Code</th>
+                        <td mat-cell *matCellDef="let element" class="text-center">{{element.code}}</td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef>Type</th>
+                        <td mat-cell *matCellDef="let element" class="text-center">{{element.type}}</td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="username">
+                        <th mat-header-cell *matHeaderCellDef>Username</th>
+                        <td mat-cell *matCellDef="let element" class="text-center">{{element.username}}</td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef>Date</th>
+                        <td mat-cell *matCellDef="let element" class="text-center">{{element.date.slice(0,10)}}</td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="sent">
+                        <th mat-header-cell *matHeaderCellDef>Envoyé</th>
+                        <td mat-cell *matCellDef="let element" class="text-center">
+                            <fa-icon [icon]="sentIcon" [ngClass]="element.sent ? 'color-success' : 'color-danger'" class="sent-icon-margin"></fa-icon>
+                        </td>
+                    </ng-container>
+    
+                    
+    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                    
+                </table>
+                <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                </mat-paginator>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="type">Moyen d'acquisition :</label>
+                    </div>
+                    <div>
+                        
+                        <select name="type" id="" [(ngModel)]="moyen_id" class="input" [disabled]="showNewMoyen" [ngClass]="showNewMoyen ? 'disabled' : ''">
+                            <option value="{{moy.id}}" *ngFor="let moy of moyens">{{moy.name}}</option>
+                        </select>
+                        <fa-icon [icon]="faPlus" class="plusIcon" (click)="switchNewMoy()"></fa-icon>
+                        
+                    </div>
+                </div>
+
+                <ng-container *ngIf="showNewMoyen">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="new_type">Nouveau Moyen :</label>
+                        </div>
+
+                        <div>
+                            <input type="text" name="new_type" class="input" [(ngModel)]="newMoyen">
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="input-group date" data-provide="datepicker">
+                        <label for="birthday">Date d'envoi :</label>
+                    </div>
+        
+                    <div>
+                        <input type="date" class="input" name="birthday" [(ngModel)]="date">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="text-center">
+                        <button class="btn btn-danger button" (click)="switchView()">Annuler</button>
+                        <button class="btn btn-success button" (click)="execute()"  [disabled]="noSelection()">Envoyer</button>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

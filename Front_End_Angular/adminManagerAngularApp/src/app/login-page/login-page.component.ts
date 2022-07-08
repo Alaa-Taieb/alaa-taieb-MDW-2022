@@ -5,6 +5,7 @@ import { inject } from '@angular/core/testing';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from './auth/auth.service';
 import { MatDialog } from '@angular/material/dialog';
+import { User } from '../user/User';
 
 @Component({
   selector: 'app-login-page',
@@ -43,7 +44,10 @@ export class LoginPageComponent implements OnInit {
       localStorage.setItem("JWT", result.jwt);
       
       this.saveUserInStorage(this.username);
-      setTimeout( () => {this.router.navigate(['/'])} , 30)
+      setTimeout( () => {
+        
+        
+      } , 30)
       
      
     }, (err) => {
@@ -71,6 +75,12 @@ export class LoginPageComponent implements OnInit {
   saveUserInStorage(username: string){
     this.userService.getUserByUsername(username).subscribe(result => {
       localStorage.setItem("LoggedUser" , JSON.stringify(result));
+      let role = result.role.name;
+      if(role == 'Admin'){
+        this.router.navigate(['/'])
+      }else{
+        this.router.navigate(['collab-space']);
+      }
     })
   }
 

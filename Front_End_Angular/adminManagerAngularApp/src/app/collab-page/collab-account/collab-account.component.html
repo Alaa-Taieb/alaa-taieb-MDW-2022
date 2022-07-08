@@ -1,0 +1,62 @@
+<div class="container big-container">
+    <div class="row">
+        <div class="col-3 left-side">
+            <div class="img-container text-center">
+                <img src="/assets/Images/anonymous-user-circle-icon-vector-18958255 (1).png" alt="" class="img">
+            </div>
+            <div class="details-container">
+                <div class="detail"><b>Prénom : </b>{{user.secondName}}</div>
+                <div class="detail"><b>Nom : </b>{{user.name}}</div>
+                <div class="detail"><b>Email : </b>{{user.email}}</div>
+                <div class="detail"><b>Numéro de téléphone : </b>{{user.phoneNumber}}</div>
+                <div class="detail"><b>Date de naissance : </b>{{user.birthday.slice(0,10)}}</div>
+                <div class="detail"><b>Role : </b>{{user.role.name}}</div>
+                <div class="detail"><b>Username : </b>{{user.login}}</div>
+            </div>
+        </div>
+        <div class="col-9 form">
+            <div class="title">Modifier le compte</div>
+            <mat-form-field appearance="standard" class="standard">
+                <mat-label>Prénom :</mat-label>
+                <input matInput [(ngModel)]="secondName" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="standard">
+                <mat-label>Nom :</mat-label>
+                <input matInput [(ngModel)]="name" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="standard">
+                <mat-label>Email :</mat-label>
+                <input matInput [(ngModel)]="email" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="standard">
+                <mat-label>Numéro de téléphone : </mat-label>
+                <input matInput [(ngModel)]="phoneNumber" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="standard">
+                <mat-label>Date de naissance : </mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="birthday" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" class="standard">
+                <mat-label>Username</mat-label>
+                <input matInput [(ngModel)]="username" required>
+            </mat-form-field>
+
+            <div class="buttons">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6"><button class="btn btn-outline-danger float-right" (click)="cancel()">Annuler</button></div>
+                        <div class="col-6"><button class="btn btn-outline-success float-left " (click)="save()">Enregister</button></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

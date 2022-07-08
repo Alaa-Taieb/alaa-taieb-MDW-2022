@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CalendarOptions } from '@fullcalendar/angular';
 
 @Component({
   selector: 'app-action-side',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ActionSideComponent implements OnInit {
 
   @Input() message;
+
 
   constructor() { }
 

@@ -1,0 +1,70 @@
+<div class="container outer-c">
+    <div class="title">
+        Envoyer des documents
+    </div>
+
+
+    <div class="row mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="input-group">
+                        <label for="type">Moyen d'acquisition :</label>
+                    </div>
+                    <div>
+                        
+                        <select name="type" id="" [(ngModel)]="moyen_id" class="input" [disabled]="showNewMoyen" [ngClass]="showNewMoyen ? 'disabled' : ''">
+                            <option value="{{moy.id}}" *ngFor="let moy of moyens">{{moy.name}}</option>
+                        </select>
+                        <fa-icon [icon]="faPlus" class="plusIcon" (click)="switchNewMoy()"></fa-icon>
+                        
+                    </div>
+                </div>
+
+                <ng-container *ngIf="showNewMoyen">
+                    <div class="col-6">
+                        <div class="input-group">
+                            <label for="new_type">Nouveau Moyen :</label>
+                        </div>
+
+                        <div>
+                            <input type="text" name="new_type" class="input" [(ngModel)]="newMoyen">
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="input-group date" data-provide="datepicker">
+                        <label for="birthday">Date d'envoi :</label>
+                    </div>
+        
+                    <div>
+                        <input type="date" class="input" name="birthday" [(ngModel)]="date">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="input-group">
+                        <label for="">Description :</label>
+                    </div>
+                    <div class="md-form">
+                        <textarea type="text" id="form7" class="md-textarea md-textarea-auto form-control input" mdbInput [(ngModel)]="description"></textarea>
+                        
+                      </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="text-center">
+                        <button class="btn btn-danger button" (click)="switchView()">Annuler</button>
+                        <button class="btn btn-success button" (click)="execute()" >Envoyer</button>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </div>
+</div>

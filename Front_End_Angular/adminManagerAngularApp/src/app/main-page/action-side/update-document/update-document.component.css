@@ -1,0 +1,42 @@
+.outer-c{
+    margin: 2rem;
+    width: 70%;
+}
+
+.input{
+    padding: 5px 15px;
+    width: 90%;
+    border-radius: 5px;
+    border: 1px solid #878787;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.button{
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+.margin-right{
+    margin-right: 10px;
+}
+
+.icon-green{
+    margin-top: 2px;
+    font-size: 1.7rem;
+    color:rgb(81, 207, 165);
+}
+.icon-yellow{
+    margin-top: 2px;
+    font-size: 1.7rem;  
+    color:rgb(246, 232, 81);
+}
+
+.plusIcon{
+    margin-left: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}

@@ -1,0 +1,54 @@
+<mat-form-field appearance="standard" class="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+<table mat-table [dataSource]="dataSource" class="w-100">
+                    
+    <ng-container matColumnDef="username" >
+        <th mat-header-cell *matHeaderCellDef >Username</th>
+        <td mat-cell *matCellDef="let element" class="" [ngClass]="user_id == element.entity.id ? 'assisted' : ''">{{element.username}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef >Email</th>
+        <td mat-cell *matCellDef="let element" class="" [ngClass]="user_id == element.entity.id ? 'assisted' : ''">{{element.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef>Rôle</th>
+        <td mat-cell *matCellDef="let element" class="" [ngClass]="user_id == element.entity.id ? 'assisted' : ''">{{element.role}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="assisted">
+        <th mat-header-cell *matHeaderCellDef>Assisté</th>
+        <td mat-cell *matCellDef="let element" class="" [ngClass]="user_id == element.entity.id ? 'assisted' : ''">
+            <ng-container *ngIf="element.assisted">
+                <fa-icon [icon]="assistedIcon" class="assisted_icon"></fa-icon>
+            </ng-container>
+            <ng-container *ngIf="!element.assisted">
+                <fa-icon [icon]="nonAssistedIcon" class="non_assisted_icon"></fa-icon>
+            </ng-container>
+        </td>
+    </ng-container>
+
+    
+
+    
+
+    
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+    
+</table>
+<mat-paginator [length]="totalSize" [pageSizeOptions]="[3,6]" aria-label="Select page" [pageIndex]="currentPage" (page)="handlePage($event)">
+</mat-paginator>
+<div class="sujet-container">
+    <div class="title">Sujet</div>
+    {{reunion.sujet}}
+</div>
+<button class="btn btn-outline-primary float-right" (click)="sendMessage()">Retour</button>

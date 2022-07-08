@@ -1,18 +1,27 @@
 package bfi.admin_application.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.JoinColumn;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 @Entity
 public class User {
@@ -32,9 +41,25 @@ public class User {
     private String password;
 
     
-    @ManyToOne
-    @Cascade(CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Role role;
+
+    // @ManyToMany(mappedBy = "users_invited" , cascade = {CascadeType.MERGE})
+    // // @JoinTable(
+    // // name = "reunionInvited", 
+    // // joinColumns = @JoinColumn(name = "user_id"), 
+    // // inverseJoinColumns = @JoinColumn(name = "reunion_id"), 
+    // // uniqueConstraints = @UniqueConstraint(columnNames = {"reunion_id", "user_id" }))
+    // private List<Reunion> reunion_invited = new ArrayList<Reunion>();
+
+    // @ManyToMany(mappedBy = "users_assisted" , cascade = {CascadeType.MERGE})
+    // // @JoinTable(
+    // // name = "reunionAssisted", 
+    // // joinColumns = @JoinColumn(name = "user_id"), 
+    // // inverseJoinColumns = @JoinColumn(name = "reunion_id"), 
+    // // uniqueConstraints = @UniqueConstraint(columnNames = {"reunion_id", "user_id" }))
+    // private List<Reunion> reunion_assisted = new ArrayList<Reunion>();
+    
 
     public User(){
     }
@@ -57,12 +82,28 @@ public class User {
         
     }
 
+    
+
+    
+
+    // public List<Reunion> getReunion_invited() {
+    //     return reunion_invited;
+    // }
+
+    // public void setReunion_invited(ArrayList<Reunion> reunion_invited) {
+    //     this.reunion_invited = reunion_invited;
+    // }
+
+    // public List<Reunion> getReunion_assisted() {
+    //     return reunion_assisted;
+    // }
+
+    // public void setReunion_assisted(ArrayList<Reunion> reunion_assisted) {
+    //     this.reunion_assisted = reunion_assisted;
+    // }
+
     public Integer getId(){
         return Id;
-    }
-
-    public void setId(Integer id){
-        this.Id = id;
     }
 
     public String getName(){

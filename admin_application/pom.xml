@@ -56,8 +56,21 @@
 			<artifactId>json</artifactId>
 			<version>20220320</version>
 		</dependency>
+		<dependency>
+			<groupId>com.vladmihalcea</groupId>
+			<artifactId>hibernate-types-52</artifactId>
+			<version>2.16.2</version>
+		</dependency>
+		
 	
 		
+ 
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>8.0.1</version>
+		</dependency>
+ 
  </dependencies>
 
 	<build>

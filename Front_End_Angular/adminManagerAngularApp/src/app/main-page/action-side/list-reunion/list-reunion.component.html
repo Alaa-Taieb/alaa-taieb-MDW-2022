@@ -1,0 +1,122 @@
+<ng-container *ngIf="view == 'list'">
+    <div class="container outer-c">
+        <div class="title">
+            Liste documents
+        </div>
+    
+        <div class="row mt-4">
+            <div class="col-12">
+                <mat-form-field appearance="standard">
+                    <mat-label>Filter</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+                </mat-form-field>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+                    
+                    <ng-container matColumnDef="index">
+                        <th mat-header-cell *matHeaderCellDef>No.</th>
+                        <td mat-cell *matCellDef="let element ; let i = index" class="">{{i}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef>Date</th>
+                        <td mat-cell *matCellDef="let element" class="" (mouseenter)="mouseEnterDate(element.index)" (mouseleave)="mouseQuitDate(element.index)">
+                            <fa-icon [icon]="faCalendar" *ngIf="!element.edit_mode" class="sent-icon-margin"></fa-icon>
+                            <ng-container *ngIf="!element.edit_mode">{{element.date}}</ng-container>
+                            <ng-container *ngIf="element.edit_mode">
+                                <input type="date" min="{{today}}" (change)="newDate($event , element.index , tooltip)" [(ngModel)]="element.aux_date" [ngClass]="element.valid_edit ? '' : 'border-color-danger'" #tooltip="matTooltip" matTooltip="Une réunion existe en ce moment" matTooltipPosition="below" [matTooltipDisabled]="true" matTooltipClass="tooltip-red">
+                            </ng-container>
+                            <fa-icon *ngIf="!element.edit_mode && element.show_buttons" (click)="enterEditModeDate(element.index)" [icon]="faEdit" class="color-success edit-save-icon clickable"></fa-icon>
+                            <fa-icon *ngIf="element.edit_mode" [icon]="faSave" class="edit-save-icon " (click)="changeDate(element.index)" [ngClass]="element.valid_edit ? 'color-success clickable': 'color-grey' "></fa-icon>
+                            <fa-icon *ngIf="element.edit_mode" [icon]="faCancel" (click)="exitEditModeDate(element.index)" class="color-danger edit-save-icon clickable"></fa-icon>
+                        </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="heure">
+                        <th mat-header-cell *matHeaderCellDef style="width: 20%;">Heure</th>
+                        <td mat-cell *matCellDef="let element" class="" (mouseenter)="mouseEnterTime(element.index)" (mouseleave)="mouseQuitTime(element.index)">
+                            <fa-icon [icon]="faClock"*ngIf="!element.time.edit_mode" class="sent-icon-margin"></fa-icon>
+                            <ng-container *ngIf="!element.time.edit_mode">{{element.heure}}</ng-container>
+                            <ng-container *ngIf="element.time.edit_mode">
+                                <div class="container" style="width: 80%; margin: 0; padding: 0;">
+                                    <div class="row">
+                                        <div class="col-6" style="overflow: hidden; padding: 0;">
+                                            <input matInput type="number" class="time_field" name="" id="" max="23" min="0" [defaultValue]="defaultHour(element.index)" (change)="newHour($event , element.index)">:
+                                            <input matInput type="number" class="time_field" name="" id="" max="59" min="0" step="5" [defaultValue]="defaultMinute(element.index)" (change)="newMinute($event , element.index)">
+                                            
+                                        </div>
+                                        <div class="col-6" style="padding: 0;">
+                                            <fa-icon *ngIf="element.time.edit_mode" [icon]="faSave" class="edit-save-icon " (click)="changeTime(element.index)" [ngClass]="element.time.valid_edit ? 'color-success clickable': 'color-grey' " #timeToolTip="matTooltip" matTooltip="Une réunion existe en ce moment" matTooltipPosition="below" [matTooltipDisabled]="true" matTooltipClass="tooltip-red"></fa-icon>
+                                            <fa-icon *ngIf="element.time.edit_mode" [icon]="faCancel" (click)="exitEditModeTime(element.index)" class="color-danger edit-save-icon clickable"></fa-icon>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span>
+                                    
+                                </span>
+                                <span>
+                                    
+                                </span>
+                            </ng-container>
+                            <fa-icon *ngIf="!element.time.edit_mode && element.time.show_buttons" (click)="enterEditModeTime(element.index)" [icon]="faEdit" class="color-success edit-save-icon clickable"></fa-icon>
+                            
+
+                        </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="nombre_invites">
+                        <th mat-header-cell *matHeaderCellDef>Nombre d'invitations</th>
+                        <td mat-cell *matCellDef="let element" class="">{{element.mombre_invites}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="etat">
+                        <th mat-header-cell *matHeaderCellDef>État</th>
+                        <td mat-cell *matCellDef="let element" class="" (mouseenter)="onMouseEnterState(element.index)" (mouseleave)="onMouseQuitState(element.index)">
+                            <ng-container *ngIf="!element.state.edit_mode" >
+                                <div class="">
+                                    {{element.etat}}
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="element.state.edit_mode" >
+                                <select name="" id="" [(ngModel)]="element.etat" (change)="changeState($event , element.index)">
+                                    <option *ngFor="let state of states" value="{{state}}" >{{state}}</option>
+                                </select>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+    
+                    
+    
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let element"  class="">
+                           <button class="btn btn-primary margin-right" (click)="changeView(element.entity)">Détails</button>
+                           <ng-container *ngIf="element.entity.pv == null">
+                                <button class="btn btn-dark margin-right" (click)="openUploadPVDialog(element.entity)">Ajouter PV</button>
+                           </ng-container>
+                           <ng-container *ngIf="element.entity.pv != null">
+                                <button class="btn btn-success" (click)="download(element.entity.pv.id)">Télécharger le PV</button>
+                           </ng-container>
+                           <button color="warn" style="border: 0; background-color: white;" class="float-right" aria-label="Example icon button with a delete icon" (click)="delete(element.entity)">
+                                <mat-icon color="warn">delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+    
+                
+            </div>
+        </div>
+    </div>
+    
+</ng-container>
+<ng-container *ngIf="view == 'details'">
+    <app-reunion-details [reunion]="selectedReunion" (view)="recieveMessage($event)"></app-reunion-details>
+</ng-container>
+

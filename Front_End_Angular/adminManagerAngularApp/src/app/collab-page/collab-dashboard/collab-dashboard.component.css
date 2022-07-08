@@ -1,0 +1,29 @@
+.card{
+    margin-top: 20px;
+}
+
+.card-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+.full-height{
+    height: 100%;
+}
+
+.right-cards{
+    margin-bottom: 0px;
+    height: 40%;
+    
+}
+
+td{
+    height: 10px;
+}
+
+tr{
+    height: 20px;
+}

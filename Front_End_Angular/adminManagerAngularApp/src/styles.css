@@ -102,3 +102,19 @@ mat-dialog-container {
 .float-right{
     float: right;
 }
+
+.clickable{
+    cursor: pointer;
+}
+
+.color-grey{
+    color: #707070;
+}
+
+.color-caution{
+    color: #d6a71b;
+}
+
+.tooltip-red{
+    background: #dc3545;
+}
